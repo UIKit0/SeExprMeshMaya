@@ -13,8 +13,8 @@ CFLAGS = -DBits64_ -m64 -DUNIX -D_BOOL -DLINUX -DFUNCPROTO -D_GNU_SOURCE -DLINUX
 C++FLAGS = $(CFLAGS) -Wno-deprecated -fno-gnu-keywords
 
 # Maya installed path and version
-MAYA_LOCATION = /usr/autodesk/maya2013.00-x64/
-MAYA_VERSION = 2013
+MAYA_LOCATION = /usr/autodesk/maya2012.17-x64/
+MAYA_VERSION = 2012
 
 # SeExpr binary path where you installed
 SEEXPR_LOCATION = /Volumes/sv-dev01/devRepo/johnc/3rdParty/github/redpawFX/SeExpr/Linux-2.6.40.3-x86_64-optimize
@@ -24,13 +24,13 @@ LFLAGS   = -Wl,-Bsymbolic -shared
 LIBS     = -L$(MAYA_LOCATION)/lib -ldl -lOpenMaya -lOpenMayaAnim -lFoundation
 EXT      = so
 
-ALL_CPP_FILES = SeExprMeshCmd.cpp SeExprMeshNode.cpp ClosestPointFunc.cpp pluginMain.cpp
-OBJS = SeExprMeshCmd.o SeExprMeshNode.o ClosestPointFunc.o pluginMain.o $(SEEXPR_LOCATION)/lib64/libSeExpr.a
+ALL_CPP_FILES = ./src/SeExprMeshCmd.cpp ./src/SeExprMeshNode.cpp ./src/ClosestPointFunc.cpp ./src/pluginMain.cpp
+OBJS = ./src/SeExprMeshCmd.o ./src/SeExprMeshNode.o ./src/ClosestPointFunc.o ./src/pluginMain.o $(SEEXPR_LOCATION)/lib64/libSeExpr.a
 
-OUT_DIR = ../build/$(MAYA_VERSION)
+OUT_DIR = ./build/$(MAYA_VERSION)
 
 ### You have to change here where you want ###
-INSTALL_DIR = ../build/$(MAYA_VERSION)
+INSTALL_DIR = ./build/$(MAYA_VERSION)
 
 TARGET = SeExprMesh.$(EXT)
 
@@ -57,11 +57,11 @@ install: installAE
 
 installAE:
 	mkdir -p $(INSTALL_DIR)/scripts
-	cp -f ../scripts/AEseExprMeshTemplate.mel $(INSTALL_DIR)/scripts
+	cp -f ./scripts/AEseExprMeshTemplate.mel $(INSTALL_DIR)/scripts
 .PHONY: installAE
 
 clean:
-	rm -f *.o
+	rm -f ./src/*.o
 .PHONY: clean
 
 .cpp.o:
