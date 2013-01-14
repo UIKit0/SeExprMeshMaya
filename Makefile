@@ -13,11 +13,11 @@ CFLAGS = -DBits64_ -m64 -DUNIX -D_BOOL -DLINUX -DFUNCPROTO -D_GNU_SOURCE -DLINUX
 C++FLAGS = $(CFLAGS) -Wno-deprecated -fno-gnu-keywords
 
 # Maya installed path and version
-MAYA_LOCATION = /usr/autodesk/maya2012.17-x64/
-MAYA_VERSION = 2012
+MAYA_LOCATION = /usr/autodesk/maya2013-x64/
+MAYA_VERSION = 2013
 
 # SeExpr binary path where you installed
-SEEXPR_LOCATION = /Volumes/sv-dev01/devRepo/johnc/3rdParty/github/redpawFX/SeExpr/Linux-2.6.40.3-x86_64-optimize
+SEEXPR_LOCATION = /redpawFX/dev/gitHub/redpawFX/SeExpr/Linux-3.6.7-x86_64-optimize
 
 INCLUDES = -I$(MAYA_LOCATION)/include -I$(SEEXPR_LOCATION)/include
 LFLAGS   = -Wl,-Bsymbolic -shared
