@@ -2,13 +2,13 @@
 # Maya2013 supports officially gcc 4.1.2, but its version is not supported OpenMP.
 # If you want to use gcc 4.1.2, you have to remove "-fopenmp" from CFLAGS below.
 
-#C++ = g++412
-C++ = g++ #default version of fedorq14: 4.5.1
+C++ = /usr/local/gcc-4.1.2/bin/gcc
+#C++ = g++ #default version of fedorq14: 4.5.1
 
 CFLAGS = -DBits64_ -m64 -DUNIX -D_BOOL -DLINUX -DFUNCPROTO -D_GNU_SOURCE -DLINUX_64 -fPIC \
          -fno-strict-aliasing -DREQUIRE_IOSTREAM -Wno-deprecated -O3 -Wall \
          -Wno-multichar -Wno-comment -Wno-sign-compare -funsigned-char \
-         -Wno-reorder -fno-gnu-keywords -ftemplate-depth-25 -pthread -fopenmp
+         -Wno-reorder -fno-gnu-keywords -ftemplate-depth-25 -pthread
 
 C++FLAGS = $(CFLAGS) -Wno-deprecated -fno-gnu-keywords
 
